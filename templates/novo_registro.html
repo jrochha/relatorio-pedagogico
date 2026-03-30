@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Novo registro pedagógico</h2>
+<p><strong>Estudante:</strong> {{ estudante.nome }} | <strong>Turma:</strong> {{ estudante.turma }}</p>
+
+<form method="POST" class="formulario">
+    <label>Professor(a) / Pedagogo(a)</label>
+    <input type="text" name="professor" required>
+
+    <label>Área / Componente</label>
+    <input type="text" name="area" required>
+
+    <label>Dificuldades observadas</label>
+    <textarea name="dificuldades" required></textarea>
+
+    <label>Aspectos comportamentais</label>
+    <textarea name="comportamento" required></textarea>
+
+    <label>Intervenções realizadas</label>
+    <textarea name="intervencoes" required></textarea>
+
+    <label>Encaminhamentos sugeridos</label>
+    <textarea name="encaminhamentos"></textarea>
+
+    <label>Observações adicionais</label>
+    <textarea name="observacoes"></textarea>
+
+    <button type="submit" class="btn">Salvar registro</button>
+    <a href="{{ url_for('index') }}" class="btn btn-secundario">Voltar</a>
+</form>
+{% endblock %}
