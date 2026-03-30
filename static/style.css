@@ -1,1 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    margin: 0;
+    padding: 0;
+    color: #1f2937;
+}
 
+.container {
+    max-width: 980px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+}
+
+.topo {
+    margin-bottom: 24px;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 16px;
+}
+
+.topo h1 {
+    margin: 0;
+    color: #123c73;
+}
+
+.topo p {
+    margin: 8px 0 0;
+    color: #4b5563;
+}
+
+.barra-acoes {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+}
+
+.busca {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.formulario label {
+    display: block;
+    margin: 14px 0 6px;
+    font-weight: bold;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    box-sizing: border-box;
+    margin-bottom: 4px;
+}
+
+textarea {
+    min-height: 110px;
+    resize: vertical;
+}
+
+.btn {
+    display: inline-block;
+    background: #123c73;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.92;
+}
+
+.btn-secundario {
+    background: #64748b;
+}
+
+.lista {
+    display: grid;
+    gap: 14px;
+}
+
+.card {
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-left: 5px solid #123c73;
+    padding: 16px;
+    border-radius: 12px;
+}
+
+.card h3 {
+    margin-top: 0;
+}
+
+.acoes-card {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 12px;
+}
+
+.relatorio {
+    background: #f9fafb;
+    padding: 16px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+    line-height: 1.7;
+    margin-bottom: 20px;
+}
