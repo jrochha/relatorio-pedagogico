@@ -1,1 +1,29 @@
+{% extends "base.html" %}
 
+{% block content %}
+<div class="barra-acoes">
+    <a href="{{ url_for('novo_estudante') }}" class="btn">Cadastrar estudante</a>
+    <form method="GET" class="busca">
+        <input type="text" name="q" placeholder="Buscar por nome ou turma" value="{{ termo }}">
+        <button type="submit" class="btn">Buscar</button>
+    </form>
+</div>
+
+<h2>Estudantes cadastrados</h2>
+
+<div class="lista">
+    {% for estudante in estudantes %}
+        <div class="card">
+            <h3>{{ estudante.nome }}</h3>
+            <p><strong>Turma:</strong> {{ estudante.turma }}</p>
+            <p><strong>Responsável:</strong> {{ estudante.responsavel or 'Não informado' }}</p>
+            <div class="acoes-card">
+                <a href="{{ url_for('novo_registro', estudante_id=estudante.id) }}" class="btn">Novo registro</a>
+                <a href="{{ url_for('relatorio', estudante_id=estudante.id) }}" class="btn btn-secundario">Ver relatório</a>
+            </div>
+        </div>
+    {% else %}
+        <p>Nenhum estudante cadastrado até o momento.</p>
+    {% endfor %}
+</div>
+{% endblock %}
