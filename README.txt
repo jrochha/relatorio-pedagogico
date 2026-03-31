@@ -1,36 +1,21 @@
-SISTEMA DE RELATÓRIOS PEDAGÓGICOS - VERSÃO INICIAL PARA RENDER
+SISTEMA DE RELATÓRIOS PEDAGÓGICOS - VERSÃO 2
 
-1. COMO RODAR LOCALMENTE
+Esta versão já inclui:
+- lista de estudantes importada da planilha
+- exibição automática de turma e responsável
+- lista suspensa de disciplinas
+- opções em checkbox para aprendizagem, comportamento, intervenções e encaminhamentos
+- geração automática do relatório formal
 
-No terminal, dentro da pasta do projeto:
+COMO RODAR LOCALMENTE
 
 python3 -m pip install -r requirements.txt
 python3 app.py
 
-Abra no navegador:
+Abra:
 http://127.0.0.1:5000
 
-
-2. COMO SUBIR PARA O GITHUB
-
-- Crie um repositório no GitHub
-- Envie os arquivos deste projeto
-- Faça o push
-
-
-3. COMO PUBLICAR NO RENDER
-
-- Entre no Render
-- Clique em New +
-- Escolha Web Service
-- Conecte seu repositório do GitHub
-- O Render vai ler o arquivo render.yaml
-- Faça o deploy
-
-
-4. OBSERVAÇÃO IMPORTANTE
-
-Esta primeira versão usa listas em memória.
-Isso significa que, ao reiniciar a aplicação, os dados serão perdidos.
-
-Para a próxima versão, o ideal é migrar para PostgreSQL no Render.
+OBSERVAÇÃO
+Esta versão ainda usa registros em memória. Se o Render reiniciar, os registros serão perdidos.
+Na próxima etapa, o ideal é migrar os registros para PostgreSQL.
+Foram carregados 79 estudantes da planilha.
