@@ -1,1 +1,476 @@
-
+[
+  {
+    "id": 1,
+    "nome": "AGATHA VITÓRIA NASCIMENTO",
+    "turma": "6º",
+    "responsavel": "RAQUEL APARECIDA DE CAMPOS"
+  },
+  {
+    "id": 2,
+    "nome": "AGHATA YARA PEREIRA PRUDENTE",
+    "turma": "6º",
+    "responsavel": "TALITA GABRIELI PEREIRA MARTINS"
+  },
+  {
+    "id": 3,
+    "nome": "ALANA DE OLIVEIRA CHAVES",
+    "turma": "6º",
+    "responsavel": "LEILA REGINA DE OLIVEIRA CHAVES"
+  },
+  {
+    "id": 4,
+    "nome": "ANA BEATRIZ CAETANO",
+    "turma": "6º",
+    "responsavel": "LILIAN LUCAS CAETANO"
+  },
+  {
+    "id": 5,
+    "nome": "ANA BEATRIZ DA SILVA COSTA",
+    "turma": "6º",
+    "responsavel": "NEILA CRISTINA DA SILVA"
+  },
+  {
+    "id": 6,
+    "nome": "CONRADO LEANDRO BRANDÃO BARRETO",
+    "turma": "6º",
+    "responsavel": "TAMIRES APARECIDA BRANDÃO"
+  },
+  {
+    "id": 7,
+    "nome": "ELOISA BEATRIZ DE OLIVEIRA CRISTÓVÃO",
+    "turma": "6º",
+    "responsavel": "ANA KARINE DE OLIVEIRA"
+  },
+  {
+    "id": 8,
+    "nome": "EMANUELA LOURENÇO MUNHOZ",
+    "turma": "6º",
+    "responsavel": "TAISE LOURENÇO CABRAL"
+  },
+  {
+    "id": 9,
+    "nome": "GUILHERME GONZAGA DE SOUZA MORAIS",
+    "turma": "6º",
+    "responsavel": "JULIANA DE SOUZA MORAIS"
+  },
+  {
+    "id": 10,
+    "nome": "ISABELLE CRISTINE FERREIRA",
+    "turma": "6º",
+    "responsavel": "CRISTIANE DE SOUZA FERREIRA"
+  },
+  {
+    "id": 11,
+    "nome": "ISADORA OLIVEIRA PEREIRA",
+    "turma": "6º",
+    "responsavel": "REGIANE CRISTINA OLIVEIRA"
+  },
+  {
+    "id": 12,
+    "nome": "JOÃO LUCAS FRANCISCO DA SILVA",
+    "turma": "6º",
+    "responsavel": "LINDALVA FRANCISCO"
+  },
+  {
+    "id": 13,
+    "nome": "JOSÉ EDUARDO CARVALHO DE BRITO",
+    "turma": "6º",
+    "responsavel": "CÉLIA CARVALHO DE BRITO"
+  },
+  {
+    "id": 14,
+    "nome": "LARA ANDRADE",
+    "turma": "6º",
+    "responsavel": "ANA CAROLINA BIOLADA ANDRADE"
+  },
+  {
+    "id": 15,
+    "nome": "LORENA CARDOSO SOTERIO",
+    "turma": "6º",
+    "responsavel": "MOISES SOTERIO"
+  },
+  {
+    "id": 16,
+    "nome": "LUIZ FELIPE COSTA DA SILVA",
+    "turma": "6º",
+    "responsavel": "CLÁUDIO ROBERTO DA SILVA JÚNIOR"
+  },
+  {
+    "id": 17,
+    "nome": "LUIZ MIGUEL RIBEIRO FRANCISCO",
+    "turma": "6º",
+    "responsavel": "GEISSI KELLY RIBEIRO DE LIMA"
+  },
+  {
+    "id": 18,
+    "nome": "MARIA CECÍLIA SANCHES",
+    "turma": "6º",
+    "responsavel": "LUCIANA APARECIDA FERNANDES SANCHES"
+  },
+  {
+    "id": 19,
+    "nome": "MARIA CLARA OLIVEIRA TINTI",
+    "turma": "6º",
+    "responsavel": "ELAINE CRISTINA DE OLIVEIRA TINTI"
+  },
+  {
+    "id": 20,
+    "nome": "MARIA JULIA DOS SANTOS CARVALHO",
+    "turma": "6º",
+    "responsavel": "JESSICA OLIVEIRA DOS SANTOS"
+  },
+  {
+    "id": 21,
+    "nome": "MARIA SOPHIA LOURENÇO FORTES",
+    "turma": "6º",
+    "responsavel": "POLLYANNA LUIZA AMARAL"
+  },
+  {
+    "id": 22,
+    "nome": "MATHEUS APARECIDO MARTINS",
+    "turma": "6º",
+    "responsavel": "GISLAINE APARECIDO MARTINS"
+  },
+  {
+    "id": 23,
+    "nome": "MIGUEL AUGUSTO DA SILVA GROCHOLSKI",
+    "turma": "6º",
+    "responsavel": "JUCIANE APARECIDA DA SILVA GROCHOLSKI"
+  },
+  {
+    "id": 24,
+    "nome": "MURILO APARECIDO MARTINS",
+    "turma": "6º",
+    "responsavel": "GISLAINE APARECIDO MARTINS"
+  },
+  {
+    "id": 25,
+    "nome": "NATHÁLIA OLIVEIRA GODOI",
+    "turma": "6º",
+    "responsavel": "FERNANDA SANTOS DE OLIVEIRA GODOI"
+  },
+  {
+    "id": 26,
+    "nome": "NICOLE CASTRO BATISTA",
+    "turma": "6º",
+    "responsavel": "ROZILAINE DA SILVA CASTRO"
+  },
+  {
+    "id": 27,
+    "nome": "RAYSSA VITÓRIA OLIVEIRA DA SILVA",
+    "turma": "6º",
+    "responsavel": "RENATA OLIVEIRA DA SILVA"
+  },
+  {
+    "id": 28,
+    "nome": "RODRIGO VENÂNCIO DA SILVA JUNIOR",
+    "turma": "6º",
+    "responsavel": "ADRIANA FERRARI"
+  },
+  {
+    "id": 29,
+    "nome": "THALLES FERNANDO BELCHIOR OLÍMPIO",
+    "turma": "6º",
+    "responsavel": "LARISSA CRISTINA VITORINO CARVALHO BELCHIOR"
+  },
+  {
+    "id": 30,
+    "nome": "VALLENTINA VESSONI PAULA",
+    "turma": "6º",
+    "responsavel": "POLLIANE VESSONI"
+  },
+  {
+    "id": 31,
+    "nome": "ABNER DAVI RODRIGUES VIANA DA SILVA",
+    "turma": "7º",
+    "responsavel": "MEIRIELY VIANA DA SILVA"
+  },
+  {
+    "id": 32,
+    "nome": "AGATHA EMANUELY GABRIEL PIRES",
+    "turma": "7º",
+    "responsavel": "ELAINE DE FÁTIMA MEIRA GABRIEL"
+  },
+  {
+    "id": 33,
+    "nome": "ANA JULIA SOARES DA SILVA RIBEIRO",
+    "turma": "7º",
+    "responsavel": "ALEXANDRE SOARES RIBEIRO"
+  },
+  {
+    "id": 34,
+    "nome": "AYSHA GABRIELLY DOS SANTOS SILVA",
+    "turma": "7º",
+    "responsavel": "DEISEVANI CRISTINA DOS SANTOS"
+  },
+  {
+    "id": 35,
+    "nome": "BEATRIZ OLIVEIRA DE SOUZA",
+    "turma": "7º",
+    "responsavel": "VERÔNICA DE OLIVEIRA TOLEDO"
+  },
+  {
+    "id": 36,
+    "nome": "CARLOS HENRIQUE NUNES ROBERTO",
+    "turma": "7º",
+    "responsavel": "DANIELA NUNES DA SILVA"
+  },
+  {
+    "id": 37,
+    "nome": "CAUÊ VITOR DOS SANTOS ROZA",
+    "turma": "7º",
+    "responsavel": "ISABELA LUIZA DOS SANTOS SILVA"
+  },
+  {
+    "id": 38,
+    "nome": "GABRIEL DE SOUZA SOARES",
+    "turma": "7º",
+    "responsavel": "CRISTIANE DA COSTA SOUZA SOARES"
+  },
+  {
+    "id": 39,
+    "nome": "JHON RHEFERSON DOS SANTOS CARVALHO",
+    "turma": "7º",
+    "responsavel": "JESSICA OLIVEIRA DOS SANTOS"
+  },
+  {
+    "id": 40,
+    "nome": "LETICIA DA SILVA DE CARVALHO",
+    "turma": "7º",
+    "responsavel": "ROSEMEIRE APARECIDA DA SILVA DE CARVALHO"
+  },
+  {
+    "id": 41,
+    "nome": "LORENA RAFAELLA MENDES DA SILVA",
+    "turma": "7º",
+    "responsavel": "GABRIELA MARIA MENDES"
+  },
+  {
+    "id": 42,
+    "nome": "MANUELLA ARAÚJO GUIMARÃES",
+    "turma": "7º",
+    "responsavel": "CINTIA CRISTINA DE ARAÚJO GUIMARÃES"
+  },
+  {
+    "id": 43,
+    "nome": "MARIA ISABELY DE BARROS RIBEIRO",
+    "turma": "7º",
+    "responsavel": "YASMIN DANIELLE DE BARROS RIBEIRO"
+  },
+  {
+    "id": 44,
+    "nome": "VICTOR HUGO MENDONÇA DE SOUZA",
+    "turma": "7º",
+    "responsavel": "BEATRIZ CONSTANCIO DE MENDONÇA"
+  },
+  {
+    "id": 45,
+    "nome": "CAIO HENRIQUE BATISTA DUZI",
+    "turma": "8º",
+    "responsavel": "AMANDA APARECIDA BATISTA"
+  },
+  {
+    "id": 46,
+    "nome": "EDUARDO LOURENÇO MUNHOZ",
+    "turma": "8º",
+    "responsavel": "TAISE LOURENÇO CABRAL"
+  },
+  {
+    "id": 47,
+    "nome": "ESTHER MARIA DE ASSIS AMANCIO",
+    "turma": "8º",
+    "responsavel": "ANA CARLA GREGORIO DE ASSIS"
+  },
+  {
+    "id": 48,
+    "nome": "LÉU BRAYAN RAMOS MARQUES",
+    "turma": "8º",
+    "responsavel": "KÉTI MIRIAM RAMOS DE SIQUEIRA"
+  },
+  {
+    "id": 49,
+    "nome": "LORENA MANUELA INOCENCIO PEREZ BAÇAN",
+    "turma": "8º",
+    "responsavel": "SILVIA HELENA INOCENCIO"
+  },
+  {
+    "id": 50,
+    "nome": "MARIA HELENA BATISTA FERREIRA",
+    "turma": "8º",
+    "responsavel": "GRAZIELLA CARLA BATISTA FERREIRA"
+  },
+  {
+    "id": 51,
+    "nome": "MATHEUS FELIPE MARLINI",
+    "turma": "8º",
+    "responsavel": "DAIANE DE FÁTIMA GONÇALVES"
+  },
+  {
+    "id": 52,
+    "nome": "MAYARA VITORIA DA SILVA FIGAS",
+    "turma": "8º",
+    "responsavel": "ANDRELISA FARIA DA SILVA FIGAS"
+  },
+  {
+    "id": 53,
+    "nome": "PEDRO HENRIQUE DOMINGOS",
+    "turma": "8º",
+    "responsavel": "THAYNARA DAIANE MALUZA"
+  },
+  {
+    "id": 54,
+    "nome": "RODRIGO ROQUE CHAGAS",
+    "turma": "8º",
+    "responsavel": "SANDRA APARECIDA ROQUE CHAGAS"
+  },
+  {
+    "id": 55,
+    "nome": "ALICE ALVES KAVINSKI",
+    "turma": "9º",
+    "responsavel": "KÁTIA APARECIDA ALVES DO NASCIMENTO"
+  },
+  {
+    "id": 56,
+    "nome": "ANA LAURA GONÇALVES DE LIMA",
+    "turma": "9º",
+    "responsavel": "LAURIANI RIBEIRO GONCALVES"
+  },
+  {
+    "id": 57,
+    "nome": "ANNA LETÍCIA SANTOS DUARTE SIQUEIRA",
+    "turma": "9º",
+    "responsavel": "WANÊSSA BARBOSA DOS SANTOS DUARTE"
+  },
+  {
+    "id": 58,
+    "nome": "ANNA LYVIA NUNES LIMA",
+    "turma": "9º",
+    "responsavel": "ELAINE APARECIDA PEREIRA"
+  },
+  {
+    "id": 59,
+    "nome": "FABRICIO EMANUELL SOARES FRANCISCO",
+    "turma": "9º",
+    "responsavel": "ELIEUZA SOARES"
+  },
+  {
+    "id": 60,
+    "nome": "GEOVANA STHEFANY GOMES FERREIRA",
+    "turma": "9º",
+    "responsavel": "JOSIMARA GOMES FERREIRA"
+  },
+  {
+    "id": 61,
+    "nome": "JHONNH HENRY LOÇURDO GONÇALVES PINTO",
+    "turma": "9º",
+    "responsavel": "PALOMA NAYANE LOÇURDO"
+  },
+  {
+    "id": 62,
+    "nome": "JOÃO ARTHUR MATIAS DA SILVA",
+    "turma": "9º",
+    "responsavel": "ALINE MOREIRA MATIAS"
+  },
+  {
+    "id": 63,
+    "nome": "JOÃO GUILHERME DA COSTA SILVA",
+    "turma": "9º",
+    "responsavel": "CLÁUDIO ROBERTO DA SILVA JUNIOR"
+  },
+  {
+    "id": 64,
+    "nome": "JUAN AUGUSTO PANAGGIO",
+    "turma": "9º",
+    "responsavel": "KATHIELEN DAYANNE PANAGGIO"
+  },
+  {
+    "id": 65,
+    "nome": "KAUAN AUGUSTO GRACIOLI",
+    "turma": "9º",
+    "responsavel": "RAQUEL SANTOS SILVA"
+  },
+  {
+    "id": 66,
+    "nome": "KAUAN DE SOUZA DOLNISCKI",
+    "turma": "9º",
+    "responsavel": "CRISTIANE APARECIDA DE SOUZA"
+  },
+  {
+    "id": 67,
+    "nome": "LAÍSA ISABELE GONÇALVES DE LIMA",
+    "turma": "9º",
+    "responsavel": "LAURIANI RIBEIRO GONCALVES"
+  },
+  {
+    "id": 68,
+    "nome": "MARIA EDUARDA REIS CHAGAS",
+    "turma": "9º",
+    "responsavel": "MARIA LARYSSA REIS DAS CHAGAS"
+  },
+  {
+    "id": 69,
+    "nome": "MARIA JULIA DUARTE DAUTA",
+    "turma": "9º",
+    "responsavel": "FRANCENIRA APARECIDA DUARTE DAUTA"
+  },
+  {
+    "id": 70,
+    "nome": "MARIA VITORIA CAMPOS RODRIGUES DA SILVA",
+    "turma": "9º",
+    "responsavel": "ANDREIA CAMPOS RODRIGUES"
+  },
+  {
+    "id": 71,
+    "nome": "MIGUEL CARVALHO SANTANA",
+    "turma": "9º",
+    "responsavel": "EDINALDA DE CARVALHO"
+  },
+  {
+    "id": 72,
+    "nome": "MIGUEL THIAGO DOS SANTOS",
+    "turma": "9º",
+    "responsavel": "CELSO HORTIS DOS SANTOS"
+  },
+  {
+    "id": 73,
+    "nome": "NATÃ CHAGAS DE BRITO",
+    "turma": "9º",
+    "responsavel": "ANGELITA INACIA DE BRITO CHAGAS SILVA"
+  },
+  {
+    "id": 74,
+    "nome": "NÍCOLAS HENRIQUE TEODORO DA SILVA",
+    "turma": "9º",
+    "responsavel": "DEVANIR MARIANO DA SILVA TEODORO"
+  },
+  {
+    "id": 75,
+    "nome": "NIKOLLY CRISTINA DOS SANTOS VIANA",
+    "turma": "9º",
+    "responsavel": "TATIANE GOMES DOS SANTOS VIANA"
+  },
+  {
+    "id": 76,
+    "nome": "RACHEL VICTORIA DE ASSIS AMÂNCIO",
+    "turma": "9º",
+    "responsavel": "ANA CARLA GREGORIO DE ASSIS"
+  },
+  {
+    "id": 77,
+    "nome": "RICHARD GABRIEL FAL",
+    "turma": "9º",
+    "responsavel": "LUCILENE BERGAMASCO DA SILVA FAL"
+  },
+  {
+    "id": 78,
+    "nome": "SOPHIA VITÓRIA PORTO DA SILVA",
+    "turma": "9º",
+    "responsavel": "DANIELLI FERNANDA PORTO"
+  },
+  {
+    "id": 79,
+    "nome": "TALITA VITORIA DORIVAL RODRIGUES",
+    "turma": "9º",
+    "responsavel": "FRANCIELLE DORIVAL"
+  }
+]
