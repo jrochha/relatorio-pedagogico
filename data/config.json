@@ -1,0 +1,77 @@
+{
+  "disciplinas": [
+    "ARTE",
+    "CIENCIAS",
+    "ED DIG COMP PROG E ROBOTICA",
+    "EDUCACAO FISICA",
+    "ENSINO RELIGIOSO",
+    "GEOGRAFIA",
+    "HISTORIA",
+    "LINGUA INGLESA",
+    "LINGUA PORTUGUESA",
+    "MATEMATICA",
+    "EDUCACAO FINANCEIRA I",
+    "ELETIVA I",
+    "ESTUDO ORIENTADO I",
+    "LEITURA REC APREND LINGUA PORT",
+    "EMPREENDEDORISMO I",
+    "LITER ART E MOVIMENTO I",
+    "PENS LOG E CIDAD DIGITAL I",
+    "PRATICAS EXPERIMENTAIS I",
+    "PROJETO DE VIDA I",
+    "REC APREND MATEMATICA",
+    "REDACAO E LEITURA I"
+  ],
+  "dificuldades": [
+    "Leitura",
+    "Escrita",
+    "Interpretacao",
+    "Calculo",
+    "Atencao",
+    "Concentracao",
+    "Organizacao",
+    "Participacao nas atividades",
+    "Entrega de tarefas",
+    "Compreensao de comandos"
+  ],
+  "questoes_comportamentais": [
+    "Conversas paralelas",
+    "Dispersao",
+    "Desatencao",
+    "Agitacao",
+    "Desrespeito as regras",
+    "Dificuldade de socializacao",
+    "Agressividade verbal",
+    "Uso inadequado de celular",
+    "Nao realizacao das atividades",
+    "Recusa em participar",
+    "Sai do lugar com frequencia"
+  ],
+  "intervencoes": [
+    "Orientacao verbal",
+    "Mudanca de lugar",
+    "Conversa individual",
+    "Acompanhamento pedagogico",
+    "Mediacao de conflito",
+    "Contato com a familia",
+    "Atendimento individual",
+    "Registro pedagogico",
+    "Encaminhamento a equipe pedagogica"
+  ],
+  "respostas_aluno": [
+    "Apresentou melhora significativa",
+    "Apresentou melhora parcial",
+    "Manteve o comportamento",
+    "Mostrou resistencia",
+    "Colaborou com a orientacao"
+  ],
+  "encaminhamentos": [
+    "Sem necessidade",
+    "Acompanhamento pedagogico",
+    "Contato com a familia",
+    "Atendimento individual",
+    "Encaminhamento a equipe pedagogica",
+    "Encaminhamento a rede de apoio",
+    "Monitoramento continuo"
+  ]
+}
