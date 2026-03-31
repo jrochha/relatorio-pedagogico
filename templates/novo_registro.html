@@ -3,6 +3,10 @@
 {% block content %}
 <h2>Novo registro pedagógico</h2>
 
+<div class="aviso">
+    Para usar a logo oficial da escola, substitua o arquivo <strong>static/logo_escola.png</strong>.
+</div>
+
 <form method="POST" class="formulario">
     <div class="grid-2">
         <div>
@@ -120,6 +124,24 @@
     <label>Observação complementar</label>
     <textarea name="observacao_livre" placeholder="Campo opcional para complemento do relatório."></textarea>
 
+    <div class="secao-check">
+        <h3>Assinaturas</h3>
+        <div class="grid-3">
+            <div>
+                <label>Nome para assinatura do(a) estudante</label>
+                <input type="text" name="assinatura_estudante">
+            </div>
+            <div>
+                <label>Nome para assinatura do(a) professor(a)/pedagogo(a)</label>
+                <input type="text" name="assinatura_profissional">
+            </div>
+            <div>
+                <label>Nome para assinatura do responsável</label>
+                <input type="text" name="assinatura_responsavel">
+            </div>
+        </div>
+    </div>
+
     <button type="submit" class="btn">Salvar registro</button>
 </form>
 
@@ -148,13 +170,10 @@ function atualizarInfoEstudante() {
 function filtrarPorTurma() {
     const turma = turmaFiltro.value;
     const opcoes = estudanteSelect.querySelectorAll("option");
-
     opcoes.forEach(op => {
         if (!op.value) return;
-        const turmaAluno = op.dataset.turma;
-        op.hidden = turma && turmaAluno !== turma;
+        op.hidden = turma && op.dataset.turma !== turma;
     });
-
     estudanteSelect.value = "";
     atualizarInfoEstudante();
 }

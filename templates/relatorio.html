@@ -3,6 +3,14 @@
 {% block content %}
 <h2>Relatórios do estudante</h2>
 
+<div class="cabecalho-exportacao">
+    <img src="{{ url_for('static', filename='logo_escola.png') }}" alt="Logo da escola" class="logo-relatorio">
+    <div>
+        <h3>Escola Estadual Padre Manuel da Nóbrega</h3>
+        <p>Documentos pedagógicos e disciplinares</p>
+    </div>
+</div>
+
 <div class="card destaque">
     <p><strong>Estudante:</strong> {{ estudante.nome }}</p>
     <p><strong>Turma:</strong> {{ estudante.turma }}</p>
@@ -16,7 +24,29 @@
         <p><strong>Hora:</strong> {{ registro.hora }}</p>
         <p><strong>Profissional:</strong> {{ registro.profissional }}</p>
         <p><strong>Disciplina:</strong> {{ registro.disciplina }}</p>
+
         <div class="relatorio-box">{{ registro.relatorio_texto }}</div>
+
+        <div class="assinaturas">
+            <div class="assinatura-item">
+                <div class="linha-assinatura"></div>
+                <p><strong>Estudante:</strong> {{ registro.assinatura_estudante or '' }}</p>
+            </div>
+            <div class="assinatura-item">
+                <div class="linha-assinatura"></div>
+                <p><strong>Professor(a)/Pedagogo(a):</strong> {{ registro.assinatura_profissional or '' }}</p>
+            </div>
+            <div class="assinatura-item">
+                <div class="linha-assinatura"></div>
+                <p><strong>Responsável:</strong> {{ registro.assinatura_responsavel or '' }}</p>
+            </div>
+        </div>
+
+        <div class="downloads">
+            <a href="{{ url_for('download_relatorio', registro_id=registro.id, formato='txt') }}" class="btn btn-secundario">Baixar TXT</a>
+            <a href="{{ url_for('download_relatorio', registro_id=registro.id, formato='docx') }}" class="btn btn-secundario">Baixar DOC</a>
+            <a href="{{ url_for('download_relatorio', registro_id=registro.id, formato='pdf') }}" class="btn btn-secundario">Baixar PDF</a>
+        </div>
     </article>
 {% else %}
     <p>Este estudante ainda não possui registros.</p>

@@ -9,16 +9,18 @@
 <body>
     <div class="container">
         <header class="topo">
-            <div>
-                <h1>Escola Estadual Padre Manuel da Nóbrega</h1>
-                <p>Sistema de Relatórios Pedagógicos</p>
+            <div class="topo-esquerda">
+                <img src="{{ url_for('static', filename='logo_escola.png') }}" alt="Logo da escola" class="logo-topo">
+                <div>
+                    <h1>Escola Estadual Padre Manuel da Nóbrega</h1>
+                    <p>Sistema de Relatórios Pedagógicos</p>
+                </div>
             </div>
             <nav class="menu">
                 <a href="{{ url_for('index') }}">Início</a>
                 <a href="{{ url_for('novo_registro') }}">Novo registro</a>
             </nav>
         </header>
-
         {% block content %}{% endblock %}
     </div>
 </body>
