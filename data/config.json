@@ -73,5 +73,9 @@
     "Encaminhamento a equipe pedagogica",
     "Encaminhamento a rede de apoio",
     "Monitoramento continuo"
+  ],
+  "tipos_relatorio": [
+    "Relatório de Acompanhamento Pedagógico",
+    "Relatório de Ocorrência Disciplinar"
   ]
 }
