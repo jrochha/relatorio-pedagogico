@@ -11,7 +11,9 @@
 
 {% for registro in registros %}
     <article class="card">
+        <p><strong>Tipo de relatório:</strong> {{ registro.tipo_relatorio }}</p>
         <p><strong>Data:</strong> {{ registro.data }}</p>
+        <p><strong>Hora:</strong> {{ registro.hora }}</p>
         <p><strong>Profissional:</strong> {{ registro.profissional }}</p>
         <p><strong>Disciplina:</strong> {{ registro.disciplina }}</p>
         <div class="relatorio-box">{{ registro.relatorio_texto }}</div>
