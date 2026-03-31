@@ -1,29 +1,41 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="barra-acoes">
-    <a href="{{ url_for('novo_estudante') }}" class="btn">Cadastrar estudante</a>
-    <form method="GET" class="busca">
-        <input type="text" name="q" placeholder="Buscar por nome ou turma" value="{{ termo }}">
-        <button type="submit" class="btn">Buscar</button>
-    </form>
-</div>
+<section class="hero">
+    <div class="hero-card">
+        <strong>Total de estudantes:</strong>
+        <span>{{ total_estudantes }}</span>
+    </div>
+    <div class="hero-card">
+        <strong>Total de registros:</strong>
+        <span>{{ total_registros }}</span>
+    </div>
+</section>
 
-<h2>Estudantes cadastrados</h2>
+<form method="GET" class="filtros">
+    <input type="text" name="q" placeholder="Buscar por estudante ou responsável" value="{{ busca }}">
+    <select name="turma">
+        <option value="">Todas as turmas</option>
+        {% for turma in turmas %}
+            <option value="{{ turma }}" {% if turma_atual == turma %}selected{% endif %}>{{ turma }}</option>
+        {% endfor %}
+    </select>
+    <button type="submit" class="btn">Filtrar</button>
+    <a href="{{ url_for('novo_registro') }}" class="btn">Novo registro</a>
+</form>
 
 <div class="lista">
     {% for estudante in estudantes %}
-        <div class="card">
+        <article class="card">
             <h3>{{ estudante.nome }}</h3>
             <p><strong>Turma:</strong> {{ estudante.turma }}</p>
-            <p><strong>Responsável:</strong> {{ estudante.responsavel or 'Não informado' }}</p>
+            <p><strong>Responsável:</strong> {{ estudante.responsavel }}</p>
             <div class="acoes-card">
-                <a href="{{ url_for('novo_registro', estudante_id=estudante.id) }}" class="btn">Novo registro</a>
-                <a href="{{ url_for('relatorio', estudante_id=estudante.id) }}" class="btn btn-secundario">Ver relatório</a>
+                <a href="{{ url_for('relatorio_estudante', estudante_id=estudante.id) }}" class="btn btn-secundario">Ver relatórios</a>
             </div>
-        </div>
+        </article>
     {% else %}
-        <p>Nenhum estudante cadastrado até o momento.</p>
+        <p>Nenhum estudante encontrado.</p>
     {% endfor %}
 </div>
 {% endblock %}

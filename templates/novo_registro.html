@@ -2,31 +2,140 @@
 
 {% block content %}
 <h2>Novo registro pedagógico</h2>
-<p><strong>Estudante:</strong> {{ estudante.nome }} | <strong>Turma:</strong> {{ estudante.turma }}</p>
 
 <form method="POST" class="formulario">
-    <label>Professor(a) / Pedagogo(a)</label>
-    <input type="text" name="professor" required>
+    <div class="grid-2">
+        <div>
+            <label>Turma</label>
+            <select id="turmaFiltro">
+                <option value="">Todas</option>
+                {% for turma in turmas %}
+                    <option value="{{ turma }}">{{ turma }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div>
+            <label>Estudante</label>
+            <select name="estudante_id" id="estudanteSelect" required>
+                <option value="">Selecione o estudante</option>
+                {% for estudante in estudantes %}
+                    <option value="{{ estudante.id }}" data-turma="{{ estudante.turma }}">
+                        {{ estudante.nome }} - {{ estudante.turma }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
 
-    <label>Área / Componente</label>
-    <input type="text" name="area" required>
+    <div class="info-estudante" id="infoEstudante">
+        <p><strong>Turma:</strong> <span id="infoTurma">-</span></p>
+        <p><strong>Responsável:</strong> <span id="infoResponsavel">-</span></p>
+    </div>
 
-    <label>Dificuldades observadas</label>
-    <textarea name="dificuldades" required></textarea>
+    <div class="grid-2">
+        <div>
+            <label>Professor(a) / Pedagogo(a)</label>
+            <input type="text" name="profissional" required>
+        </div>
+        <div>
+            <label>Disciplina</label>
+            <select name="disciplina" required>
+                <option value="">Selecione</option>
+                {% for disciplina in config.disciplinas %}
+                    <option value="{{ disciplina }}">{{ disciplina }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
 
-    <label>Aspectos comportamentais</label>
-    <textarea name="comportamento" required></textarea>
+    <div class="secao-check">
+        <h3>Dificuldades de aprendizagem</h3>
+        <div class="checks">
+            {% for item in config.dificuldades %}
+                <label class="check-item"><input type="checkbox" name="dificuldades" value="{{ item }}"> {{ item }}</label>
+            {% endfor %}
+        </div>
+    </div>
 
-    <label>Intervenções realizadas</label>
-    <textarea name="intervencoes" required></textarea>
+    <div class="secao-check">
+        <h3>Questões comportamentais</h3>
+        <div class="checks">
+            {% for item in config.questoes_comportamentais %}
+                <label class="check-item"><input type="checkbox" name="questoes_comportamentais" value="{{ item }}"> {{ item }}</label>
+            {% endfor %}
+        </div>
+    </div>
 
-    <label>Encaminhamentos sugeridos</label>
-    <textarea name="encaminhamentos"></textarea>
+    <div class="secao-check">
+        <h3>Intervenções realizadas</h3>
+        <div class="checks">
+            {% for item in config.intervencoes %}
+                <label class="check-item"><input type="checkbox" name="intervencoes" value="{{ item }}"> {{ item }}</label>
+            {% endfor %}
+        </div>
+    </div>
 
-    <label>Observações adicionais</label>
-    <textarea name="observacoes"></textarea>
+    <div class="secao-check">
+        <h3>Resposta do estudante</h3>
+        <div class="checks">
+            {% for item in config.respostas_aluno %}
+                <label class="check-item"><input type="radio" name="resposta_aluno" value="{{ item }}" required> {{ item }}</label>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="secao-check">
+        <h3>Encaminhamentos</h3>
+        <div class="checks">
+            {% for item in config.encaminhamentos %}
+                <label class="check-item"><input type="checkbox" name="encaminhamentos" value="{{ item }}"> {{ item }}</label>
+            {% endfor %}
+        </div>
+    </div>
+
+    <label>Observação complementar</label>
+    <textarea name="observacao_livre" placeholder="Campo opcional para complemento do relatório."></textarea>
 
     <button type="submit" class="btn">Salvar registro</button>
-    <a href="{{ url_for('index') }}" class="btn btn-secundario">Voltar</a>
 </form>
+
+<script>
+const estudanteSelect = document.getElementById("estudanteSelect");
+const turmaFiltro = document.getElementById("turmaFiltro");
+const infoTurma = document.getElementById("infoTurma");
+const infoResponsavel = document.getElementById("infoResponsavel");
+
+function atualizarInfoEstudante() {
+    const id = estudanteSelect.value;
+    if (!id) {
+        infoTurma.textContent = "-";
+        infoResponsavel.textContent = "-";
+        return;
+    }
+
+    fetch(`/api/estudante/${id}`)
+        .then(r => r.json())
+        .then(data => {
+            infoTurma.textContent = data.turma || "-";
+            infoResponsavel.textContent = data.responsavel || "-";
+        });
+}
+
+function filtrarPorTurma() {
+    const turma = turmaFiltro.value;
+    const opcoes = estudanteSelect.querySelectorAll("option");
+
+    opcoes.forEach(op => {
+        if (!op.value) return;
+        const turmaAluno = op.dataset.turma;
+        op.hidden = turma && turmaAluno !== turma;
+    });
+
+    estudanteSelect.value = "";
+    atualizarInfoEstudante();
+}
+
+turmaFiltro.addEventListener("change", filtrarPorTurma);
+estudanteSelect.addEventListener("change", atualizarInfoEstudante);
+</script>
 {% endblock %}

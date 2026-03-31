@@ -1,32 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Relatório pedagógico</h2>
+<h2>Relatórios do estudante</h2>
 
-<div class="card">
+<div class="card destaque">
     <p><strong>Estudante:</strong> {{ estudante.nome }}</p>
     <p><strong>Turma:</strong> {{ estudante.turma }}</p>
-    <p><strong>Responsável:</strong> {{ estudante.responsavel or 'Não informado' }}</p>
+    <p><strong>Responsável:</strong> {{ estudante.responsavel }}</p>
 </div>
 
-<h3>Texto final</h3>
-<div class="relatorio">
-    {{ relatorio_texto.replace('\n', '<br><br>') | safe }}
-</div>
+{% for registro in registros %}
+    <article class="card">
+        <p><strong>Data:</strong> {{ registro.data }}</p>
+        <p><strong>Profissional:</strong> {{ registro.profissional }}</p>
+        <p><strong>Disciplina:</strong> {{ registro.disciplina }}</p>
+        <div class="relatorio-box">{{ registro.relatorio_texto }}</div>
+    </article>
+{% else %}
+    <p>Este estudante ainda não possui registros.</p>
+{% endfor %}
 
-<h3>Registros lançados</h3>
-<div class="lista">
-    {% for r in registros %}
-        <div class="card">
-            <p><strong>Data:</strong> {{ r.data }}</p>
-            <p><strong>Professor(a)/Pedagogo(a):</strong> {{ r.professor }}</p>
-            <p><strong>Área:</strong> {{ r.area }}</p>
-        </div>
-    {% else %}
-        <p>Este estudante ainda não possui registros.</p>
-    {% endfor %}
-</div>
-
-<a href="{{ url_for('index') }}" class="btn">Voltar</a>
-<a href="{{ url_for('novo_registro', estudante_id=estudante.id) }}" class="btn btn-secundario">Novo registro</a>
+<a href="{{ url_for('novo_registro') }}" class="btn">Novo registro</a>
 {% endblock %}

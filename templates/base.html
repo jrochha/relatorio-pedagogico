@@ -9,9 +9,16 @@
 <body>
     <div class="container">
         <header class="topo">
-            <h1>Escola Estadual Padre Manuel da Nóbrega</h1>
-            <p>Sistema de Relatórios Pedagógicos</p>
+            <div>
+                <h1>Escola Estadual Padre Manuel da Nóbrega</h1>
+                <p>Sistema de Relatórios Pedagógicos</p>
+            </div>
+            <nav class="menu">
+                <a href="{{ url_for('index') }}">Início</a>
+                <a href="{{ url_for('novo_registro') }}">Novo registro</a>
+            </nav>
         </header>
+
         {% block content %}{% endblock %}
     </div>
 </body>
