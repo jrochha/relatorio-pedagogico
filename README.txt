@@ -27,3 +27,10 @@ ATUALIZAÇÃO V3
 - Tipo de relatório com duas modalidades:
   * Relatório de Acompanhamento Pedagógico
   * Relatório de Ocorrência Disciplinar
+
+
+ATUALIZAÇÃO V4
+- Suporte visual para logo da escola em tela e nos arquivos exportados
+- Download do relatório em TXT, DOCX e PDF
+- Campos de assinatura do estudante, professor/pedagogo e responsável
+- Para usar a logo oficial, substitua o arquivo static/logo_escola.png pela imagem da escola
