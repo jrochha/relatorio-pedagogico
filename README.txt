@@ -19,3 +19,11 @@ OBSERVAÇÃO
 Esta versão ainda usa registros em memória. Se o Render reiniciar, os registros serão perdidos.
 Na próxima etapa, o ideal é migrar os registros para PostgreSQL.
 Foram carregados 79 estudantes da planilha.
+
+
+ATUALIZAÇÃO V3
+- Campo de data do registro
+- Campo de hora do registro
+- Tipo de relatório com duas modalidades:
+  * Relatório de Acompanhamento Pedagógico
+  * Relatório de Ocorrência Disciplinar

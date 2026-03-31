@@ -32,6 +32,7 @@ def formatar_lista(lista):
 
 
 def gerar_relatorio(estudante, registro):
+    tipo_relatorio = registro["tipo_relatorio"]
     disciplina = registro["disciplina"]
     dificuldades = formatar_lista(registro["dificuldades"])
     comportamentos = formatar_lista(registro["questoes_comportamentais"])
@@ -41,34 +42,48 @@ def gerar_relatorio(estudante, registro):
     observacao = registro["observacao_livre"].strip()
 
     partes = [
-        f"O presente relatório pedagógico refere-se ao(à) estudante {estudante['nome']}, da turma {estudante['turma']}, "
-        f"com base no registro realizado em {registro['data']} na disciplina de {disciplina}."
+        f"{tipo_relatorio} referente ao(à) estudante {estudante['nome']}, da turma {estudante['turma']}, "
+        f"registrado em {registro['data']} às {registro['hora']}."
     ]
 
-    if registro["dificuldades"]:
+    if tipo_relatorio == "Relatório de Ocorrência Disciplinar":
         partes.append(
-            f"No âmbito da aprendizagem, foram observadas dificuldades relacionadas a {dificuldades}."
+            f"O registro foi realizado no contexto da disciplina de {disciplina}."
         )
-
-    if registro["questoes_comportamentais"]:
+        if registro["questoes_comportamentais"]:
+            partes.append(
+                f"Foram observadas as seguintes ocorrências comportamentais: {comportamentos}."
+            )
+        if registro["intervencoes"]:
+            partes.append(
+                f"Diante da situação, foram adotadas as seguintes intervenções: {intervencoes}."
+            )
+        partes.append(f"Após a intervenção, verificou-se que o(a) estudante {resposta}.")
+        if registro["encaminhamentos"]:
+            partes.append(f"Como encaminhamento, recomenda-se {encaminhamentos}.")
+        if observacao:
+            partes.append(f"Observação complementar: {observacao}")
+    else:
         partes.append(
-            f"No aspecto comportamental, foram identificadas situações como {comportamentos}."
+            f"O registro foi realizado no contexto da disciplina de {disciplina}."
         )
-
-    if registro["intervencoes"]:
-        partes.append(
-            f"Como intervenções pedagógicas, foram realizadas ações como {intervencoes}."
-        )
-
-    partes.append(f"Após as intervenções, verificou-se que o(a) estudante {resposta}.")
-
-    if registro["encaminhamentos"]:
-        partes.append(
-            f"Como encaminhamento, recomenda-se {encaminhamentos}."
-        )
-
-    if observacao:
-        partes.append(f"Observação complementar: {observacao}")
+        if registro["dificuldades"]:
+            partes.append(
+                f"No âmbito da aprendizagem, foram observadas dificuldades relacionadas a {dificuldades}."
+            )
+        if registro["questoes_comportamentais"]:
+            partes.append(
+                f"No aspecto comportamental, foram identificadas situações como {comportamentos}."
+            )
+        if registro["intervencoes"]:
+            partes.append(
+                f"Como intervenções pedagógicas, foram realizadas ações como {intervencoes}."
+            )
+        partes.append(f"Após as intervenções, verificou-se que o(a) estudante {resposta}.")
+        if registro["encaminhamentos"]:
+            partes.append(f"Como encaminhamento, recomenda-se {encaminhamentos}.")
+        if observacao:
+            partes.append(f"Observação complementar: {observacao}")
 
     return " ".join(partes)
 
@@ -116,10 +131,15 @@ def novo_registro():
         if not estudante:
             return "Estudante não encontrado.", 404
 
+        data_registro = request.form.get("data_registro", "").strip()
+        hora_registro = request.form.get("hora_registro", "").strip()
+
         registro = {
             "id": len(registros) + 1,
             "estudante_id": estudante_id,
-            "data": datetime.now().strftime("%d/%m/%Y"),
+            "data": data_registro if data_registro else datetime.now().strftime("%d/%m/%Y"),
+            "hora": hora_registro if hora_registro else datetime.now().strftime("%H:%M"),
+            "tipo_relatorio": request.form["tipo_relatorio"],
             "disciplina": request.form["disciplina"],
             "profissional": request.form["profissional"].strip(),
             "dificuldades": request.form.getlist("dificuldades"),
@@ -139,6 +159,8 @@ def novo_registro():
         estudantes=estudantes,
         turmas=turmas,
         config=config,
+        data_atual=datetime.now().strftime("%Y-%m-%d"),
+        hora_atual=datetime.now().strftime("%H:%M"),
     )
 
 
