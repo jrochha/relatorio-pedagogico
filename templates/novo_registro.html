@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h2>Novo registro pedagógico</h2>
+<h2 class="titulo-pagina">Novo registro pedagógico</h2>
+
+<div class="linha-numero">
+    <strong>Nº ________/2026</strong>
+</div>
 
 <div class="aviso">
     Para usar a logo oficial da escola, substitua o arquivo <strong>static/logo_escola.png</strong>.
@@ -146,12 +150,11 @@
 </form>
 
 <script>
+<script>
 const estudanteSelect = document.getElementById("estudanteSelect");
 const turmaFiltro = document.getElementById("turmaFiltro");
 const infoTurma = document.getElementById("infoTurma");
 const infoResponsavel = document.getElementById("infoResponsavel");
-
-// 🔥 salvar lista original
 const todasOpcoes = Array.from(estudanteSelect.options);
 
 function atualizarInfoEstudante() {
@@ -170,14 +173,10 @@ function atualizarInfoEstudante() {
         });
 }
 
-// 🔥 NOVA LÓGICA (FUNCIONA DE VERDADE)
 function filtrarPorTurma() {
     const turma = turmaFiltro.value;
-
-    // limpa tudo
     estudanteSelect.innerHTML = '<option value="">Selecione o estudante</option>';
 
-    // recria filtrado
     todasOpcoes.forEach(op => {
         if (!op.value) return;
 
