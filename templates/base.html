@@ -8,19 +8,28 @@
 </head>
 <body>
     <div class="container">
-        <header class="topo">
-            <div class="topo-esquerda">
-                <img src="{{ url_for('static', filename='logo_escola.png') }}" alt="Logo da escola" class="logo-topo">
-                <div>
-                    <h1>Escola Estadual Padre Manuel da Nóbrega</h1>
-                    <p>Sistema de Relatórios Pedagógicos</p>
-                </div>
+        <header class="topo-oficial">
+            <div class="logo-bloco">
+                <img src="{{ url_for('static', filename='logo_estado.png') }}" alt="Logo Estado do Paraná" class="logo-estado-topo">
             </div>
-            <nav class="menu">
-                <a href="{{ url_for('index') }}">Início</a>
-                <a href="{{ url_for('novo_registro') }}">Novo registro</a>
-            </nav>
+
+            <div class="titulo-oficial">
+                <h1>ESTADO DO PARANÁ</h1>
+                <h2>SECRETARIA DE ESTADO DA EDUCAÇÃO</h2>
+                <h3>PARANÁ INTEGRAL</h3>
+                <h4>ESCOLA ESTADUAL PADRE MANUEL DA NÓBREGA</h4>
+            </div>
+
+            <div class="logo-bloco">
+                <img src="{{ url_for('static', filename='logo_escola.png') }}" alt="Logo da escola" class="logo-escola-topo">
+            </div>
         </header>
+
+        <nav class="menu-oficial">
+            <a href="{{ url_for('index') }}">Início</a>
+            <a href="{{ url_for('novo_registro') }}">Novo registro</a>
+        </nav>
+
         {% block content %}{% endblock %}
     </div>
 </body>
