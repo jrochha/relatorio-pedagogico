@@ -16,7 +16,8 @@ app = Flask(__name__, template_folder="templates", static_folder="static")
 BASE_DIR = Path(__file__).resolve().parent
 DATA_DIR = BASE_DIR / "data"
 STATIC_DIR = BASE_DIR / "static"
-LOGO_PATH = STATIC_DIR / "logo_escola.png"
+LOGO_ESCOLA_PATH = STATIC_DIR / "logo_escola.png"
+LOGO_ESTADO_PATH = STATIC_DIR / "logo_estado.png"
 
 with open(DATA_DIR / "alunos.json", "r", encoding="utf-8") as f:
     estudantes = json.load(f)
