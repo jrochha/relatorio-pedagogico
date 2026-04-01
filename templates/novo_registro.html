@@ -150,11 +150,12 @@
 </form>
 
 <script>
-<script>
 const estudanteSelect = document.getElementById("estudanteSelect");
 const turmaFiltro = document.getElementById("turmaFiltro");
 const infoTurma = document.getElementById("infoTurma");
 const infoResponsavel = document.getElementById("infoResponsavel");
+
+// 🔥 salvar lista original
 const todasOpcoes = Array.from(estudanteSelect.options);
 
 function atualizarInfoEstudante() {
@@ -173,10 +174,14 @@ function atualizarInfoEstudante() {
         });
 }
 
+// 🔥 NOVA LÓGICA (FUNCIONA DE VERDADE)
 function filtrarPorTurma() {
     const turma = turmaFiltro.value;
+
+    // limpa tudo
     estudanteSelect.innerHTML = '<option value="">Selecione o estudante</option>';
 
+    // recria filtrado
     todasOpcoes.forEach(op => {
         if (!op.value) return;
 
