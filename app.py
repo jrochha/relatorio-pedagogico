@@ -85,7 +85,7 @@ def gerar_relatorio(estudante, registro):
             )
         partes.append(f"Após a intervenção, verificou-se que o(a) estudante {resposta}.")
         if registro["encaminhamentos"]:
-            partes.append(f"Como encaminhamento, recomenda-se {encaminhamentos}.")
+            partes.append(f"Como orientação, recomenda-se {encaminhamentos}.")
         if observacao:
             partes.append(f"Observação complementar: {observacao}")
     else:
@@ -104,7 +104,7 @@ def gerar_relatorio(estudante, registro):
             )
         partes.append(f"Após as intervenções, verificou-se que o(a) estudante {resposta}.")
         if registro["encaminhamentos"]:
-            partes.append(f"Como encaminhamento, recomenda-se {encaminhamentos}.")
+            partes.append(f"Como orientação, recomenda-se {encaminhamentos}.")
         if observacao:
             partes.append(f"Observação complementar: {observacao}")
 
