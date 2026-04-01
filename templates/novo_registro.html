@@ -151,6 +151,9 @@ const turmaFiltro = document.getElementById("turmaFiltro");
 const infoTurma = document.getElementById("infoTurma");
 const infoResponsavel = document.getElementById("infoResponsavel");
 
+// 🔥 salvar lista original
+const todasOpcoes = Array.from(estudanteSelect.options);
+
 function atualizarInfoEstudante() {
     const id = estudanteSelect.value;
     if (!id) {
@@ -167,13 +170,22 @@ function atualizarInfoEstudante() {
         });
 }
 
+// 🔥 NOVA LÓGICA (FUNCIONA DE VERDADE)
 function filtrarPorTurma() {
     const turma = turmaFiltro.value;
-    const opcoes = estudanteSelect.querySelectorAll("option");
-    opcoes.forEach(op => {
+
+    // limpa tudo
+    estudanteSelect.innerHTML = '<option value="">Selecione o estudante</option>';
+
+    // recria filtrado
+    todasOpcoes.forEach(op => {
         if (!op.value) return;
-        op.hidden = turma && op.dataset.turma !== turma;
+
+        if (!turma || op.dataset.turma === turma) {
+            estudanteSelect.appendChild(op.cloneNode(true));
+        }
     });
+
     estudanteSelect.value = "";
     atualizarInfoEstudante();
 }
