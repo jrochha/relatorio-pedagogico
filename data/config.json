@@ -23,11 +23,11 @@
     "REDACAO E LEITURA I",
     "OUTROS SETORES DA ESCOLA"
   ],
-  "tipos_relatório": [
+  "tipos_relatorio": [
     "Relatório de Acompanhamento Pedagógico",
     "Relatório de Ocorrência Disciplinar"
   ],
-  "acompanhamento_pedagógico": {
+  "acompanhamento_pedagogico": {
     "dificuldades_aprendizagem": [
       "Leitura",
       "Escrita",
@@ -59,7 +59,7 @@
       "Assiduidade",
       "Pontualidade"
     ],
-    "questões_comportamentais": [
+    "questoes_comportamentais": [
       "Conversas paralelas",
       "Dispersão",
       "Desatenção",
@@ -77,7 +77,7 @@
       "Postura passiva diante das atividades",
       "Insegurança para participar"
     ],
-    "intervenções_realizadas": [
+    "intervençoes_realizadas": [
       "Orientacao verbal",
       "Mudanca de lugar",
       "Conversa individual",
@@ -126,7 +126,7 @@
       "Acompanhamento da equipe multidisciplinar"
     ]
   },
-  "ocorrência_disciplinar": {
+  "ocorrencia_disciplinar": {
     "questões_comportamentais": [
       "Conversas paralelas",
       "Dispersão",
