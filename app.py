@@ -49,6 +49,15 @@ def formatar_lista(lista):
     return ", ".join(item.lower() for item in lista[:-1]) + f" e {lista[-1].lower()}"
 
 
+def formatar_data_br(data_iso):
+    if not data_iso:
+        return datetime.now().strftime("%d/%m/%Y")
+    try:
+        return datetime.strptime(data_iso, "%Y-%m-%d").strftime("%d/%m/%Y")
+    except ValueError:
+        return data_iso
+
+
 def gerar_relatorio(estudante, registro):
     tipo_relatorio = registro["tipo_relatorio"]
     disciplina = registro["disciplina"]
@@ -161,7 +170,7 @@ def inserir_logos_doc(document):
     p_right.alignment = WD_ALIGN_PARAGRAPH.CENTER
     if LOGO_ESCOLA_PATH.exists():
         run = p_right.add_run()
-        run.add_picture(str(LOGO_ESCOLA_PATH), width=Inches(1.1))
+        run.add_picture(str(LOGO_ESCOLA_PATH), width=Inches(1.0))
 
 
 def gerar_docx(estudante, registro):
@@ -264,10 +273,10 @@ def draw_header_pdf(pdf, width, height):
         try:
             pdf.drawImage(
                 ImageReader(str(LOGO_ESCOLA_PATH)),
-                width - 100,
-                y - 62,
-                width=58,
-                height=58,
+                width - 85,
+                y - 52,
+                width=42,
+                height=42,
                 preserveAspectRatio=True,
                 mask="auto",
             )
@@ -384,7 +393,7 @@ def novo_registro():
         registro = {
             "id": len(registros) + 1,
             "estudante_id": estudante_id,
-            "data": request.form.get("data_registro", "").strip() or datetime.now().strftime("%d/%m/%Y"),
+            "data": formatar_data_br(request.form.get("data_registro", "").strip()),
             "hora": request.form.get("hora_registro", "").strip() or datetime.now().strftime("%H:%M"),
             "tipo_relatorio": request.form["tipo_relatorio"],
             "disciplina": request.form["disciplina"],
