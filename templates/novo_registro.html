@@ -223,18 +223,13 @@ function limparSecoes() {
     encaminhamentosContainer.innerHTML = "";
 }
 
-function obterLista(caminho, fallback = []) {
-    let atual = configData;
-
-    for (const chave of caminho) {
-        if (atual && Object.prototype.hasOwnProperty.call(atual, chave)) {
-            atual = atual[chave];
-        } else {
-            return fallback;
+function listaComFallback(obj, chaves, fallback = []) {
+    for (const chave of chaves) {
+        if (obj && Array.isArray(obj[chave]) && obj[chave].length > 0) {
+            return obj[chave];
         }
     }
-
-    return Array.isArray(atual) ? atual : fallback;
+    return fallback;
 }
 
 function atualizarTipoRelatorio() {
@@ -243,29 +238,36 @@ function atualizarTipoRelatorio() {
 
     if (!valor) return;
 
+    const pedag = configData.acompanhamento_pedagogico || {};
+    const disc = configData.ocorrencia_disciplinar || {};
+
     if (valor === "Relatório de Acompanhamento Pedagógico") {
         secaoDificuldades.style.display = "block";
         secaoIntervencoes.style.display = "block";
         secaoRespostas.style.display = "block";
         secaoEncaminhamentos.style.display = "block";
 
-        const dificuldades = obterLista(
-            ["acompanhamento_pedagogico", "dificuldades_aprendizagem"],
+        const dificuldades = listaComFallback(
+            pedag,
+            ["dificuldades_aprendizagem", "dificuldades"],
             configData.dificuldades || []
         );
 
-        const intervencoes = obterLista(
-            ["acompanhamento_pedagogico", "intervencoes_realizadas"],
+        const intervencoes = listaComFallback(
+            pedag,
+            ["intervencoes_realizadas", "intervencoes"],
             configData.intervencoes || []
         );
 
-        const respostas = obterLista(
-            ["acompanhamento_pedagogico", "resposta_estudante"],
+        const respostas = listaComFallback(
+            pedag,
+            ["resposta_estudante", "respostas_aluno", "resposta_aluno"],
             configData.respostas_aluno || []
         );
 
-        const encaminhamentos = obterLista(
-            ["acompanhamento_pedagogico", "encaminhamentos"],
+        const encaminhamentos = listaComFallback(
+            pedag,
+            ["encaminhamentos"],
             configData.encaminhamentos || []
         );
 
@@ -281,23 +283,27 @@ function atualizarTipoRelatorio() {
         secaoRespostas.style.display = "block";
         secaoEncaminhamentos.style.display = "block";
 
-        const comportamentais = obterLista(
-            ["ocorrencia_disciplinar", "questoes_comportamentais"],
+        const comportamentais = listaComFallback(
+            disc,
+            ["questoes_comportamentais", "comportamentais"],
             configData.questoes_comportamentais || []
         );
 
-        const intervencoes = obterLista(
-            ["ocorrencia_disciplinar", "intervencoes_realizadas"],
+        const intervencoes = listaComFallback(
+            disc,
+            ["intervencoes_realizadas", "intervencoes"],
             configData.intervencoes || []
         );
 
-        const respostas = obterLista(
-            ["ocorrencia_disciplinar", "resposta_estudante"],
+        const respostas = listaComFallback(
+            disc,
+            ["resposta_estudante", "respostas_aluno", "resposta_aluno"],
             configData.respostas_aluno || []
         );
 
-        const encaminhamentos = obterLista(
-            ["ocorrencia_disciplinar", "encaminhamentos"],
+        const encaminhamentos = listaComFallback(
+            disc,
+            ["encaminhamentos"],
             configData.encaminhamentos || []
         );
 
@@ -312,7 +318,6 @@ turmaFiltro.addEventListener("change", filtrarPorTurma);
 estudanteSelect.addEventListener("change", atualizarInfoEstudante);
 tipoRelatorio.addEventListener("change", atualizarTipoRelatorio);
 
-// caso a página já abra com algo selecionado
 document.addEventListener("DOMContentLoaded", () => {
     atualizarTipoRelatorio();
 });
