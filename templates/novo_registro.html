@@ -76,54 +76,29 @@
         <div></div>
     </div>
 
-    <!-- ACOMPANHAMENTO PEDAGÓGICO -->
-    <div id="secaoDificuldades" style="display:none;">
-        <div class="secao-check">
-            <h3>Dificuldades de aprendizagem</h3>
-            <div class="checks">
-                {% for item in config.acompanhamento_pedagogico.dificuldades_aprendizagem %}
-                    <label class="check-item">
-                        <input type="checkbox" name="dificuldades" value="{{ item }}"> {{ item }}
-                    </label>
-                {% endfor %}
-            </div>
-        </div>
+    <div id="secaoDificuldades" class="secao-check" style="display:none;">
+        <h3>Dificuldades de aprendizagem</h3>
+        <div class="checks" id="dificuldadesContainer"></div>
     </div>
 
-    <!-- OCORRÊNCIA DISCIPLINAR -->
-    <div id="secaoComportamentais" style="display:none;">
-        <div class="secao-check">
-            <h3>Questões comportamentais</h3>
-            <div class="checks">
-                {% for item in config.ocorrencia_disciplinar.questoes_comportamentais %}
-                    <label class="check-item">
-                        <input type="checkbox" name="questoes_comportamentais" value="{{ item }}"> {{ item }}
-                    </label>
-                {% endfor %}
-            </div>
-        </div>
+    <div id="secaoComportamentais" class="secao-check" style="display:none;">
+        <h3>Questões comportamentais</h3>
+        <div class="checks" id="comportamentaisContainer"></div>
     </div>
 
-    <!-- COMUM AOS DOIS -->
-    <div id="secaoIntervencoes" style="display:none;">
-        <div class="secao-check">
-            <h3>Intervenções realizadas</h3>
-            <div class="checks" id="intervencoesContainer"></div>
-        </div>
+    <div id="secaoIntervencoes" class="secao-check" style="display:none;">
+        <h3>Intervenções realizadas</h3>
+        <div class="checks" id="intervencoesContainer"></div>
     </div>
 
-    <div id="secaoRespostas" style="display:none;">
-        <div class="secao-check">
-            <h3>Resposta do estudante</h3>
-            <div class="checks" id="respostasContainer"></div>
-        </div>
+    <div id="secaoRespostas" class="secao-check" style="display:none;">
+        <h3>Resposta do estudante</h3>
+        <div class="checks" id="respostasContainer"></div>
     </div>
 
-    <div id="secaoEncaminhamentos" style="display:none;">
-        <div class="secao-check">
-            <h3>Encaminhamentos</h3>
-            <div class="checks" id="encaminhamentosContainer"></div>
-        </div>
+    <div id="secaoEncaminhamentos" class="secao-check" style="display:none;">
+        <h3>Encaminhamentos</h3>
+        <div class="checks" id="encaminhamentosContainer"></div>
     </div>
 
     <label>Observação complementar</label>
@@ -163,6 +138,8 @@ const secaoIntervencoes = document.getElementById("secaoIntervencoes");
 const secaoRespostas = document.getElementById("secaoRespostas");
 const secaoEncaminhamentos = document.getElementById("secaoEncaminhamentos");
 
+const dificuldadesContainer = document.getElementById("dificuldadesContainer");
+const comportamentaisContainer = document.getElementById("comportamentaisContainer");
 const intervencoesContainer = document.getElementById("intervencoesContainer");
 const respostasContainer = document.getElementById("respostasContainer");
 const encaminhamentosContainer = document.getElementById("encaminhamentosContainer");
@@ -230,6 +207,8 @@ function limparSecoes() {
     secaoRespostas.style.display = "none";
     secaoEncaminhamentos.style.display = "none";
 
+    dificuldadesContainer.innerHTML = "";
+    comportamentaisContainer.innerHTML = "";
     intervencoesContainer.innerHTML = "";
     respostasContainer.innerHTML = "";
     encaminhamentosContainer.innerHTML = "";
@@ -246,6 +225,13 @@ function atualizarTipoRelatorio() {
         secaoIntervencoes.style.display = "block";
         secaoRespostas.style.display = "block";
         secaoEncaminhamentos.style.display = "block";
+
+        renderizarOpcoes(
+            dificuldadesContainer,
+            configData.acompanhamento_pedagogico.dificuldades_aprendizagem,
+            "dificuldades",
+            "checkbox"
+        );
 
         renderizarOpcoes(
             intervencoesContainer,
@@ -274,6 +260,13 @@ function atualizarTipoRelatorio() {
         secaoIntervencoes.style.display = "block";
         secaoRespostas.style.display = "block";
         secaoEncaminhamentos.style.display = "block";
+
+        renderizarOpcoes(
+            comportamentaisContainer,
+            configData.ocorrencia_disciplinar.questoes_comportamentais,
+            "questoes_comportamentais",
+            "checkbox"
+        );
 
         renderizarOpcoes(
             intervencoesContainer,
