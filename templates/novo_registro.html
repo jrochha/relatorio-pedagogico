@@ -76,8 +76,8 @@
         <div></div>
     </div>
 
-    <!-- BLOCO PEDAGÓGICO -->
-    <div id="blocoPedagogico" style="display:none;">
+    <!-- ACOMPANHAMENTO PEDAGÓGICO -->
+    <div id="secaoDificuldades" style="display:none;">
         <div class="secao-check">
             <h3>Dificuldades de aprendizagem</h3>
             <div class="checks">
@@ -88,32 +88,10 @@
                 {% endfor %}
             </div>
         </div>
-
-        <div class="secao-check">
-            <h3>Questões comportamentais</h3>
-            <div class="checks">
-                {% for item in config.acompanhamento_pedagogico.questoes_comportamentais %}
-                    <label class="check-item">
-                        <input type="checkbox" name="questoes_comportamentais" value="{{ item }}"> {{ item }}
-                    </label>
-                {% endfor %}
-            </div>
-        </div>
-
-        <div class="secao-check">
-            <h3>Intervenções realizadas</h3>
-            <div class="checks">
-                {% for item in config.acompanhamento_pedagogico.intervencoes_realizadas %}
-                    <label class="check-item">
-                        <input type="checkbox" name="intervencoes" value="{{ item }}"> {{ item }}
-                    </label>
-                {% endfor %}
-            </div>
-        </div>
     </div>
 
-    <!-- BLOCO DISCIPLINAR -->
-    <div id="blocoDisciplinar" style="display:none;">
+    <!-- OCORRÊNCIA DISCIPLINAR -->
+    <div id="secaoComportamentais" style="display:none;">
         <div class="secao-check">
             <h3>Questões comportamentais</h3>
             <div class="checks">
@@ -124,27 +102,28 @@
                 {% endfor %}
             </div>
         </div>
+    </div>
 
+    <!-- COMUM AOS DOIS -->
+    <div id="secaoIntervencoes" style="display:none;">
         <div class="secao-check">
             <h3>Intervenções realizadas</h3>
-            <div class="checks">
-                {% for item in config.ocorrencia_disciplinar.intervencoes_realizadas %}
-                    <label class="check-item">
-                        <input type="checkbox" name="intervencoes" value="{{ item }}"> {{ item }}
-                    </label>
-                {% endfor %}
-            </div>
+            <div class="checks" id="intervencoesContainer"></div>
         </div>
     </div>
 
-    <div class="secao-check">
-        <h3>Resposta do estudante</h3>
-        <div class="checks" id="respostasContainer"></div>
+    <div id="secaoRespostas" style="display:none;">
+        <div class="secao-check">
+            <h3>Resposta do estudante</h3>
+            <div class="checks" id="respostasContainer"></div>
+        </div>
     </div>
 
-    <div class="secao-check">
-        <h3>Encaminhamentos</h3>
-        <div class="checks" id="encaminhamentosContainer"></div>
+    <div id="secaoEncaminhamentos" style="display:none;">
+        <div class="secao-check">
+            <h3>Encaminhamentos</h3>
+            <div class="checks" id="encaminhamentosContainer"></div>
+        </div>
     </div>
 
     <label>Observação complementar</label>
@@ -177,12 +156,18 @@ const turmaFiltro = document.getElementById("turmaFiltro");
 const infoTurma = document.getElementById("infoTurma");
 const infoResponsavel = document.getElementById("infoResponsavel");
 const tipoRelatorio = document.getElementById("tipoRelatorio");
-const blocoPedagogico = document.getElementById("blocoPedagogico");
-const blocoDisciplinar = document.getElementById("blocoDisciplinar");
+
+const secaoDificuldades = document.getElementById("secaoDificuldades");
+const secaoComportamentais = document.getElementById("secaoComportamentais");
+const secaoIntervencoes = document.getElementById("secaoIntervencoes");
+const secaoRespostas = document.getElementById("secaoRespostas");
+const secaoEncaminhamentos = document.getElementById("secaoEncaminhamentos");
+
+const intervencoesContainer = document.getElementById("intervencoesContainer");
 const respostasContainer = document.getElementById("respostasContainer");
 const encaminhamentosContainer = document.getElementById("encaminhamentosContainer");
-const todasOpcoes = Array.from(estudanteSelect.options);
 
+const todasOpcoes = Array.from(estudanteSelect.options);
 const configData = {{ config | tojson }};
 
 function atualizarInfoEstudante() {
@@ -216,8 +201,9 @@ function filtrarPorTurma() {
     atualizarInfoEstudante();
 }
 
-function renderizarRadiosOuChecks(container, itens, nomeCampo, tipoInput) {
+function renderizarOpcoes(container, itens, nomeCampo, tipoInput) {
     container.innerHTML = "";
+
     itens.forEach(item => {
         const label = document.createElement("label");
         label.className = "check-item";
@@ -226,6 +212,7 @@ function renderizarRadiosOuChecks(container, itens, nomeCampo, tipoInput) {
         input.type = tipoInput;
         input.name = nomeCampo;
         input.value = item;
+
         if (tipoInput === "radio") {
             input.required = true;
         }
@@ -236,27 +223,45 @@ function renderizarRadiosOuChecks(container, itens, nomeCampo, tipoInput) {
     });
 }
 
-function atualizarTipoRelatorio() {
-    const valor = tipoRelatorio.value;
+function limparSecoes() {
+    secaoDificuldades.style.display = "none";
+    secaoComportamentais.style.display = "none";
+    secaoIntervencoes.style.display = "none";
+    secaoRespostas.style.display = "none";
+    secaoEncaminhamentos.style.display = "none";
 
-    blocoPedagogico.style.display = "none";
-    blocoDisciplinar.style.display = "none";
+    intervencoesContainer.innerHTML = "";
     respostasContainer.innerHTML = "";
     encaminhamentosContainer.innerHTML = "";
+}
+
+function atualizarTipoRelatorio() {
+    const valor = tipoRelatorio.value;
+    limparSecoes();
 
     if (!valor) return;
 
     if (valor === "Relatório de Acompanhamento Pedagógico") {
-        blocoPedagogico.style.display = "block";
+        secaoDificuldades.style.display = "block";
+        secaoIntervencoes.style.display = "block";
+        secaoRespostas.style.display = "block";
+        secaoEncaminhamentos.style.display = "block";
 
-        renderizarRadiosOuChecks(
+        renderizarOpcoes(
+            intervencoesContainer,
+            configData.acompanhamento_pedagogico.intervencoes_realizadas,
+            "intervencoes",
+            "checkbox"
+        );
+
+        renderizarOpcoes(
             respostasContainer,
             configData.acompanhamento_pedagogico.resposta_estudante,
             "resposta_aluno",
             "radio"
         );
 
-        renderizarRadiosOuChecks(
+        renderizarOpcoes(
             encaminhamentosContainer,
             configData.acompanhamento_pedagogico.encaminhamentos,
             "encaminhamentos",
@@ -265,16 +270,26 @@ function atualizarTipoRelatorio() {
     }
 
     if (valor === "Relatório de Ocorrência Disciplinar") {
-        blocoDisciplinar.style.display = "block";
+        secaoComportamentais.style.display = "block";
+        secaoIntervencoes.style.display = "block";
+        secaoRespostas.style.display = "block";
+        secaoEncaminhamentos.style.display = "block";
 
-        renderizarRadiosOuChecks(
+        renderizarOpcoes(
+            intervencoesContainer,
+            configData.ocorrencia_disciplinar.intervencoes_realizadas,
+            "intervencoes",
+            "checkbox"
+        );
+
+        renderizarOpcoes(
             respostasContainer,
             configData.ocorrencia_disciplinar.resposta_estudante,
             "resposta_aluno",
             "radio"
         );
 
-        renderizarRadiosOuChecks(
+        renderizarOpcoes(
             encaminhamentosContainer,
             configData.ocorrencia_disciplinar.encaminhamentos,
             "encaminhamentos",
