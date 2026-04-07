@@ -160,6 +160,10 @@ function atualizarInfoEstudante() {
         .then(data => {
             infoTurma.textContent = data.turma || "-";
             infoResponsavel.textContent = data.responsavel || "-";
+        })
+        .catch(() => {
+            infoTurma.textContent = "-";
+            infoResponsavel.textContent = "-";
         });
 }
 
@@ -180,6 +184,11 @@ function filtrarPorTurma() {
 
 function renderizarOpcoes(container, itens, nomeCampo, tipoInput) {
     container.innerHTML = "";
+
+    if (!Array.isArray(itens) || itens.length === 0) {
+        container.innerHTML = "<p>Nenhuma opção disponível.</p>";
+        return;
+    }
 
     itens.forEach(item => {
         const label = document.createElement("label");
@@ -214,6 +223,20 @@ function limparSecoes() {
     encaminhamentosContainer.innerHTML = "";
 }
 
+function obterLista(caminho, fallback = []) {
+    let atual = configData;
+
+    for (const chave of caminho) {
+        if (atual && Object.prototype.hasOwnProperty.call(atual, chave)) {
+            atual = atual[chave];
+        } else {
+            return fallback;
+        }
+    }
+
+    return Array.isArray(atual) ? atual : fallback;
+}
+
 function atualizarTipoRelatorio() {
     const valor = tipoRelatorio.value;
     limparSecoes();
@@ -226,33 +249,30 @@ function atualizarTipoRelatorio() {
         secaoRespostas.style.display = "block";
         secaoEncaminhamentos.style.display = "block";
 
-        renderizarOpcoes(
-            dificuldadesContainer,
-            configData.acompanhamento_pedagogico.dificuldades_aprendizagem,
-            "dificuldades",
-            "checkbox"
+        const dificuldades = obterLista(
+            ["acompanhamento_pedagogico", "dificuldades_aprendizagem"],
+            configData.dificuldades || []
         );
 
-        renderizarOpcoes(
-            intervencoesContainer,
-            configData.acompanhamento_pedagogico.intervencoes_realizadas,
-            "intervencoes",
-            "checkbox"
+        const intervencoes = obterLista(
+            ["acompanhamento_pedagogico", "intervencoes_realizadas"],
+            configData.intervencoes || []
         );
 
-        renderizarOpcoes(
-            respostasContainer,
-            configData.acompanhamento_pedagogico.resposta_estudante,
-            "resposta_aluno",
-            "radio"
+        const respostas = obterLista(
+            ["acompanhamento_pedagogico", "resposta_estudante"],
+            configData.respostas_aluno || []
         );
 
-        renderizarOpcoes(
-            encaminhamentosContainer,
-            configData.acompanhamento_pedagogico.encaminhamentos,
-            "encaminhamentos",
-            "checkbox"
+        const encaminhamentos = obterLista(
+            ["acompanhamento_pedagogico", "encaminhamentos"],
+            configData.encaminhamentos || []
         );
+
+        renderizarOpcoes(dificuldadesContainer, dificuldades, "dificuldades", "checkbox");
+        renderizarOpcoes(intervencoesContainer, intervencoes, "intervencoes", "checkbox");
+        renderizarOpcoes(respostasContainer, respostas, "resposta_aluno", "radio");
+        renderizarOpcoes(encaminhamentosContainer, encaminhamentos, "encaminhamentos", "checkbox");
     }
 
     if (valor === "Relatório de Ocorrência Disciplinar") {
@@ -261,38 +281,40 @@ function atualizarTipoRelatorio() {
         secaoRespostas.style.display = "block";
         secaoEncaminhamentos.style.display = "block";
 
-        renderizarOpcoes(
-            comportamentaisContainer,
-            configData.ocorrencia_disciplinar.questoes_comportamentais,
-            "questoes_comportamentais",
-            "checkbox"
+        const comportamentais = obterLista(
+            ["ocorrencia_disciplinar", "questoes_comportamentais"],
+            configData.questoes_comportamentais || []
         );
 
-        renderizarOpcoes(
-            intervencoesContainer,
-            configData.ocorrencia_disciplinar.intervencoes_realizadas,
-            "intervencoes",
-            "checkbox"
+        const intervencoes = obterLista(
+            ["ocorrencia_disciplinar", "intervencoes_realizadas"],
+            configData.intervencoes || []
         );
 
-        renderizarOpcoes(
-            respostasContainer,
-            configData.ocorrencia_disciplinar.resposta_estudante,
-            "resposta_aluno",
-            "radio"
+        const respostas = obterLista(
+            ["ocorrencia_disciplinar", "resposta_estudante"],
+            configData.respostas_aluno || []
         );
 
-        renderizarOpcoes(
-            encaminhamentosContainer,
-            configData.ocorrencia_disciplinar.encaminhamentos,
-            "encaminhamentos",
-            "checkbox"
+        const encaminhamentos = obterLista(
+            ["ocorrencia_disciplinar", "encaminhamentos"],
+            configData.encaminhamentos || []
         );
+
+        renderizarOpcoes(comportamentaisContainer, comportamentais, "questoes_comportamentais", "checkbox");
+        renderizarOpcoes(intervencoesContainer, intervencoes, "intervencoes", "checkbox");
+        renderizarOpcoes(respostasContainer, respostas, "resposta_aluno", "radio");
+        renderizarOpcoes(encaminhamentosContainer, encaminhamentos, "encaminhamentos", "checkbox");
     }
 }
 
 turmaFiltro.addEventListener("change", filtrarPorTurma);
 estudanteSelect.addEventListener("change", atualizarInfoEstudante);
 tipoRelatorio.addEventListener("change", atualizarTipoRelatorio);
+
+// caso a página já abra com algo selecionado
+document.addEventListener("DOMContentLoaded", () => {
+    atualizarTipoRelatorio();
+});
 </script>
 {% endblock %}
