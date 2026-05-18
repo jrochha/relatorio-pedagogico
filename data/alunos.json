@@ -30,6 +30,12 @@
     "responsavel": "NEILA CRISTINA DA SILVA"
   },
   {
+    "id": 5,
+    "nome": "ANNA LIVIA RIBEIRO DE LIMA",
+    "turma": "6º",
+    "responsavel": "ANDREIA MARIA RIBEIRO DE LIMA"
+  },
+  {
     "id": 6,
     "nome": "CONRADO LEANDRO BRANDÃO BARRETO",
     "turma": "6º",
@@ -196,6 +202,12 @@
     "nome": "ANA JULIA SOARES DA SILVA RIBEIRO",
     "turma": "7º",
     "responsavel": "ALEXANDRE SOARES RIBEIRO"
+  },
+  {
+    "id": 33,
+    "nome": "ARTHUR GUILHERME OLIVEIRA DE LIMA",
+    "turma": "7º",
+    "responsavel": "Deleuza Aparecida Rodrigues"
   },
   {
     "id": 34,
@@ -469,8 +481,8 @@
   },
   {
     "id": 79,
-    "nome": "TALITA VITORIA DORIVAL RODRIGUES",
+    "nome": "JOAO GABRIEL FELICIANO GONCALVES",
     "turma": "9º",
-    "responsavel": "FRANCIELLE DORIVAL"
+    "responsavel": "FERNANDA FELICIANO"
   }
 ]
