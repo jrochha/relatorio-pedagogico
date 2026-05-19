@@ -252,3 +252,130 @@ label {
     margin-bottom: 12px;
     color: #111827;
 }
+/* ================================
+   BOTÕES DE ACESSIBILIDADE
+================================ */
+
+.acessibilidade {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 12px 0 24px;
+    flex-wrap: wrap;
+}
+
+.acessibilidade button {
+    background: #0f2f5d;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.acessibilidade button:hover {
+    background: #123f7a;
+}
+
+
+/* ================================
+   MODO ESCURO
+================================ */
+
+body.modo-escuro {
+    background: #0f172a;
+    color: #f8fafc;
+}
+
+body.modo-escuro .container,
+body.modo-escuro .card,
+body.modo-escuro .secao-check,
+body.modo-escuro .relatorio-box,
+body.modo-escuro .assinatura-item,
+body.modo-escuro .info-estudante {
+    background: #1e293b;
+    color: #f8fafc;
+    border-color: #475569;
+}
+
+body.modo-escuro .topo-oficial {
+    border-bottom-color: #93c5fd;
+}
+
+body.modo-escuro .titulo-oficial h1,
+body.modo-escuro .titulo-oficial h2,
+body.modo-escuro .titulo-oficial h3,
+body.modo-escuro .titulo-oficial h4,
+body.modo-escuro .titulo-pagina,
+body.modo-escuro .secao-check h3,
+body.modo-escuro .menu-oficial a,
+body.modo-escuro .linha-numero {
+    color: #bfdbfe;
+}
+
+body.modo-escuro input,
+body.modo-escuro select,
+body.modo-escuro textarea {
+    background: #0f172a;
+    color: #f8fafc;
+    border-color: #64748b;
+}
+
+body.modo-escuro input::placeholder,
+body.modo-escuro textarea::placeholder {
+    color: #cbd5e1;
+}
+
+body.modo-escuro .btn,
+body.modo-escuro .acessibilidade button {
+    background: #2563eb;
+}
+
+body.modo-escuro .btn-secundario {
+    background: #64748b;
+}
+
+body.modo-escuro .linha-assinatura {
+    border-top-color: #f8fafc;
+}
+
+
+/* ================================
+   BAIXA VISÃO / FONTE AMPLIADA
+================================ */
+
+body.baixa-visao {
+    font-size: 120%;
+}
+
+body.baixa-visao .container {
+    max-width: 1280px;
+}
+
+body.baixa-visao input,
+body.baixa-visao select,
+body.baixa-visao textarea,
+body.baixa-visao button,
+body.baixa-visao .btn {
+    font-size: 1.1rem;
+}
+
+body.baixa-visao .check-item {
+    font-size: 1.08rem;
+    margin-bottom: 8px;
+}
+
+body.baixa-visao .checks {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+body.baixa-visao .titulo-oficial h1 {
+    font-size: 1.45rem;
+}
+
+body.baixa-visao .titulo-oficial h2,
+body.baixa-visao .titulo-oficial h3,
+body.baixa-visao .titulo-oficial h4 {
+    font-size: 1.2rem;
+}
