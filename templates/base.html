@@ -30,7 +30,34 @@
             <a href="{{ url_for('novo_registro') }}">Novo registro</a>
         </nav>
 
+        <div class="acessibilidade">
+            <button type="button" onclick="alternarModoEscuro()">🌙 Modo escuro</button>
+            <button type="button" onclick="alternarBaixaVisao()">🔎 Baixa visão</button>
+        </div>
+
         {% block content %}{% endblock %}
     </div>
+
+    <script>
+        function alternarModoEscuro() {
+            document.body.classList.toggle("modo-escuro");
+            localStorage.setItem("modoEscuro", document.body.classList.contains("modo-escuro"));
+        }
+
+        function alternarBaixaVisao() {
+            document.body.classList.toggle("baixa-visao");
+            localStorage.setItem("baixaVisao", document.body.classList.contains("baixa-visao"));
+        }
+
+        window.addEventListener("DOMContentLoaded", function() {
+            if (localStorage.getItem("modoEscuro") === "true") {
+                document.body.classList.add("modo-escuro");
+            }
+
+            if (localStorage.getItem("baixaVisao") === "true") {
+                document.body.classList.add("baixa-visao");
+            }
+        });
+    </script>
 </body>
 </html>
